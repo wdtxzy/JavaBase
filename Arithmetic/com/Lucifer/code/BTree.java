@@ -4,27 +4,27 @@
  */
 public class BTree {
 
-    public void insert(int value,TreeNode root){
+    public void insert(int value, TreeNode root) {
         TreeNode newNode = new TreeNode();
         newNode.data = value;
-        if (root == null){
+        if (root == null) {
             root = newNode;
-        }else {
+        } else {
             TreeNode current = root;
             //current节点的父节点
             TreeNode parent;
             //循环查找插入的位置
-            while (true){
+            while (true) {
                 parent = current;
-                if(value<parent.data){//如果插入值小于当前节点的值，向左子树查找
+                if (value < parent.data) {//如果插入值小于当前节点的值，向左子树查找
                     current = parent.leftChild;
-                    if(current == null) {
+                    if (current == null) {
                         parent.leftChild = newNode;
                         return;
                     }
-                }else{//如果插入值大于当前节点的值，向右子树找
+                } else {//如果插入值大于当前节点的值，向右子树找
                     current = parent.rightChild;
-                    if(current == null){
+                    if (current == null) {
                         parent.rightChild = newNode;
                         return;
                     }
@@ -34,19 +34,19 @@ public class BTree {
     }
 
     //查找二叉树
-    public TreeNode find(int value,TreeNode root){
+    public TreeNode find(int value, TreeNode root) {
         TreeNode current = root;
-        if(root == null){
+        if (root == null) {
             return null;
-        }else{
-            while (true){
-                if(current == null){
+        } else {
+            while (true) {
+                if (current == null) {
                     return null;
-                }else if(current.data == value){
+                } else if (current.data == value) {
                     return current;
-                }else if(current.data>value){
-                    current=current.leftChild;
-                }else if(current.data<value){
+                } else if (current.data > value) {
+                    current = current.leftChild;
+                } else if (current.data < value) {
                     current = current.rightChild;
                 }
             }
@@ -55,49 +55,49 @@ public class BTree {
 
     //删除节点
     //TODO 还需要再写一遍
-    public boolean delet(int value,TreeNode root){
+    public boolean delet(int value, TreeNode root) {
         TreeNode current = root;
         TreeNode parent = root;
         boolean isLeft = false;
         boolean isRight = false;
         //查找要删除的节点是做节点还是右节点
-        while (current.data!=value){
+        while (current.data != value) {
             parent = current;
             isLeft = false;
-            isRight =false;
-            if(value<current.data){
+            isRight = false;
+            if (value < current.data) {
                 current = parent.leftChild;
                 isLeft = true;
-            }else {
+            } else {
                 current = parent.rightChild;
                 isRight = true;
             }
-            if(current == null){
+            if (current == null) {
                 return false;
             }
         }
-        if(current.leftChild == null && current.rightChild==null){//是叶子节点，不存在子节点
-            if(isLeft){
+        if (current.leftChild == null && current.rightChild == null) {//是叶子节点，不存在子节点
+            if (isLeft) {
                 parent.leftChild = null;
-            }else if(isRight){
+            } else if (isRight) {
                 parent.rightChild = null;
             }
             return true;
-        } else if(current.leftChild!=null&&current.rightChild == null){//存在左节点
-            if(isLeft){
+        } else if (current.leftChild != null && current.rightChild == null) {//存在左节点
+            if (isLeft) {
                 parent.leftChild = current.leftChild;
-            }else if(isRight){
+            } else if (isRight) {
                 parent.rightChild = current.leftChild;
             }
             return true;
-        }else if (current.leftChild==null&&current.rightChild!=null){//存在右节点
-            if(isLeft){
+        } else if (current.leftChild == null && current.rightChild != null) {//存在右节点
+            if (isLeft) {
                 parent.leftChild = current.rightChild;
-            }else if(isRight){
+            } else if (isRight) {
                 parent.rightChild = current.rightChild;
             }
             return true;
-        }else {//左右子节点都存在
+        } else {//左右子节点都存在
             if (isLeft) {
                 parent.leftChild = current.leftChild;
                 TreeNode currentLeft = current.rightChild;
@@ -123,7 +123,7 @@ public class BTree {
 
     //前序
     public void preOrder(TreeNode root) {
-        if(root != null) {
+        if (root != null) {
             System.out.println(root.data);
             preOrder(root.leftChild);
             preOrder(root.rightChild);
@@ -131,8 +131,8 @@ public class BTree {
     }
 
     //中序
-    public void midOrder(TreeNode root){
-        if(root != null){
+    public void midOrder(TreeNode root) {
+        if (root != null) {
             midOrder(root.leftChild);
             System.out.println(root.data);
             midOrder(root.rightChild);
@@ -140,8 +140,8 @@ public class BTree {
     }
 
     //后序
-    public void afterOrder(TreeNode root){
-        if(root != null){
+    public void afterOrder(TreeNode root) {
+        if (root != null) {
             afterOrder(root.leftChild);
             afterOrder(root.rightChild);
             System.out.println(root.data);
@@ -150,13 +150,13 @@ public class BTree {
 
     //打印二叉树
     //TODO 还需要再写一遍
-    public  void printTree(TreeNode head) {
+    public void printTree(TreeNode head) {
         System.out.println("-----------------\r\nBinary Tree:");
         printInOrder(head, 0, "Root-", 8);
         System.out.println();
     }
 
-    public  void printInOrder(TreeNode head, int height, String to, int len) {
+    public void printInOrder(TreeNode head, int height, String to, int len) {
         if (head == null) {
             return;
         }
@@ -170,7 +170,7 @@ public class BTree {
         printInOrder(head.leftChild, height + 1, "L-", len);
     }
 
-    public  String getSpace(int num) {
+    public String getSpace(int num) {
         String space = " ";
         StringBuffer buf = new StringBuffer("");
         for (int i = 0; i < num; i++) {

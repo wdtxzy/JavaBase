@@ -11,7 +11,7 @@ public class ThreadDemo02 {
             @Override
             public void run() {
                 for (int i = 0; i < 60; i++) {
-                    System.out.println("子线程，i"+i);
+                    System.out.println("子线程，i" + i);
                 }
             }
         });
@@ -19,18 +19,18 @@ public class ThreadDemo02 {
         try {
             //等待其他线程执行完，再继续执行
             thread.join();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i=0;i<30;i++){
-            System.out.println("主线程，i"+i);
+        for (int i = 0; i < 30; i++) {
+            System.out.println("主线程，i" + i);
         }
 
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 60; i++) {
-                    System.out.println("子线程t1，i"+i);
+                    System.out.println("子线程t1，i" + i);
                 }
             }
         });
@@ -42,10 +42,10 @@ public class ThreadDemo02 {
                 for (int i = 0; i < 60; i++) {
                     try {
                         t1.join();
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    System.out.println("子线程t2，i"+i);
+                    System.out.println("子线程t2，i" + i);
                 }
             }
         });

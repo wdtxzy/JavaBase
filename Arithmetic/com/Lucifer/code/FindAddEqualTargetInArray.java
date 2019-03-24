@@ -11,28 +11,28 @@ public class FindAddEqualTargetInArray {
     public static void main(String[] args) {
         int[] arr = new int[100];
         Random random = new Random();
-        for(int i=0;i<100;i++){
-            int tmp = random.nextInt(99)+1;
+        for (int i = 0; i < 100; i++) {
+            int tmp = random.nextInt(99) + 1;
             arr[i] = tmp;
         }
         FindAddEqualTargetInArray findAddEqualTargetInArray = new FindAddEqualTargetInArray();
-        findAddEqualTargetInArray.findAddEqualTarget(arr,10);
+        findAddEqualTargetInArray.findAddEqualTarget(arr, 10);
     }
 
-    public void findAddEqualTarget(int[] arr, int target){
-        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
-        for(int i =0;i<arr.length;i++){
-            map.put(arr[i],0);
+    public void findAddEqualTarget(int[] arr, int target) {
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], 0);
         }
-        HashMap<Integer,Integer> result = new HashMap<Integer, Integer>();
-       for(int i = 0;i<arr.length;i++){
-           int tmp = target - arr[i];
-           if(map.containsKey(tmp)){
-               result.put(tmp,arr[i]);
-           }
-       }
-       for(Map.Entry entry:result.entrySet()){
-           System.out.println("couple is:"+entry.getKey()+","+entry.getValue());
-       }
+        HashMap<Integer, Integer> result = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            int tmp = target - arr[i];
+            if (map.containsKey(tmp)) {
+                result.put(tmp, arr[i]);
+            }
+        }
+        for (Map.Entry entry : result.entrySet()) {
+            System.out.println("couple is:" + entry.getKey() + "," + entry.getValue());
+        }
     }
 }

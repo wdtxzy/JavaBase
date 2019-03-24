@@ -13,14 +13,14 @@ public class RemoveDuplicateCharInString {
         removeDuplicateCharInString.remove(str);
     }
 
-    public void remove(String str){
+    public void remove(String str) {
         HashSet<Character> set1 = new HashSet<Character>();
         HashSet<Character> set2 = new HashSet<Character>();
         HashSet<Character> set3 = new HashSet<Character>();
         char[] sr = str.toCharArray();
-        for(char string:sr){
+        for (char string : sr) {
             boolean add = set1.add(string);
-            if(!add){
+            if (!add) {
                 set2.add(string);
             }
         }
@@ -28,17 +28,17 @@ public class RemoveDuplicateCharInString {
         set3.removeAll(set2);
         //消除重复后的字符
         System.out.println("消除重复后的字符串");
-        for(char c:set1){
+        for (char c : set1) {
             System.out.println(c);
         }
         //重复的字符
         System.out.println("重复的字符");
-        for(char c :set2){
+        for (char c : set2) {
             System.out.println(c);
         }
         //没有重复的字符
         System.out.println("没有重复的字符");
-        for(char c: set3){
+        for (char c : set3) {
             System.out.println(c);
         }
     }

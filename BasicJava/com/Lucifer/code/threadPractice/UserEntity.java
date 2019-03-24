@@ -17,7 +17,7 @@ public class UserEntity {
         return username;
     }
 
-    UserEntity(String userid,String username){
+    UserEntity(String userid, String username) {
         this.userid = userid;
         this.username = username;
     }

@@ -8,13 +8,13 @@ public class ReverseASentence {
         String a = "much so you love I";
         StringBuffer stringBuffer = new StringBuffer();
         int dep = 0;
-        for(int i=0;i<a.length();i++){
+        for (int i = 0; i < a.length(); i++) {
             char c = a.charAt(i);
-            if(c == ' '){
+            if (c == ' ') {
                 dep = 0;
             }
-            stringBuffer.insert(dep,c);
-            if(c != ' '){
+            stringBuffer.insert(dep, c);
+            if (c != ' ') {
                 dep++;
             }
         }

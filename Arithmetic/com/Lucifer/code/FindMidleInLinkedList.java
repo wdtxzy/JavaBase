@@ -10,12 +10,12 @@ public class FindMidleInLinkedList {
 
     }
 
-    public ListNode findmid(ListNode head){
+    public ListNode findmid(ListNode head) {
         ListNode i = head;
         ListNode j = head;
-        while (j.getNext().getNext()!=null){
+        while (j.getNext().getNext() != null) {
             i = i.getNext();
-            j=j.getNext().getNext();
+            j = j.getNext().getNext();
         }
         return i;
     }

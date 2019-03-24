@@ -12,10 +12,10 @@ public class RevertString {
         System.out.println(revertStr);
     }
 
-    public String revert(String str){
-        if(str.length() == 1 || str.length() < 1){
+    public String revert(String str) {
+        if (str.length() == 1 || str.length() < 1) {
             return str;
         }
-        return revert(str.substring(1))+str.charAt(0);
+        return revert(str.substring(1)) + str.charAt(0);
     }
 }
