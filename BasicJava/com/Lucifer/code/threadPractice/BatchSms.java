@@ -15,9 +15,8 @@ class UserSendThread implements Runnable {
     public UserSendThread(List<UserEntity> list) {
         this.list = list;
     }
-
     @Override
-    public void run() {
+    public void run(){
         for (UserEntity userEntity : list) {
             System.out.println(Thread.currentThread().getName() + "," + userEntity.getUsername());
         }
@@ -39,7 +38,7 @@ public class BatchSms {
     }
 
     private static List<UserEntity> initUser() {
-        List<UserEntity> list = new ArrayList<>();
+        List<UserEntity> list = new ArrayList<UserEntity>();
         for (int i = 0; i <= 11; i++) {
             list.add(new UserEntity("userId" + i, "username" + i));
         }
