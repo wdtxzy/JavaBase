@@ -8,12 +8,18 @@ import java.lang.reflect.Method;
  */
 interface House{
     void buy();
+    void sold();
 }
 
 class Buyer implements House{
     @Override
     public void buy(){
         System.out.println("buy a house");
+    }
+
+    @Override
+    public void sold(){
+        System.out.println("sold a house");
     }
 }
 
@@ -43,8 +49,15 @@ class Proxy implements House{
     @Override
     public void buy(){
         System.out.println("我是中介，你买房开始交给我了");
-         buyer.buy();
+        buyer.buy();
         System.out.println("我是中介，买房结束了");
+    }
+
+    @Override
+    public void sold(){
+        System.out.println("我是中介，你卖房开始交给我了");
+        buyer.sold();
+        System.out.println("我是中介，卖房结束了");
     }
 }
 public class StaticProxy {
@@ -55,5 +68,6 @@ public class StaticProxy {
         JdkProxy jdkProxy = new JdkProxy(new Buyer());
         House house2 = (House) java.lang.reflect.Proxy.newProxyInstance(Buyer.class.getClassLoader(),Buyer.class.getInterfaces(),jdkProxy);
         house2.buy();
+        house2.sold();
     }
 }
