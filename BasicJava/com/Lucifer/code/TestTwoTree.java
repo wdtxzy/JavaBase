@@ -44,7 +44,7 @@ public class TestTwoTree {
         if(root == null){
             return;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         while (root != null || !stack.empty()){
             while (root != null){
                 System.out.print(root.getData());
